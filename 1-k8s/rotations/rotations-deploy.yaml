@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rotations
+  name: rotations
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rotations
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: rotations
+    spec:
+      containers:
+      - image: lukewyman/rotations:v1.0.0
+        name: rotations
+        command: 
+        - /bin/sh
+        - -c
+        - 'uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8080'
+        envFrom:
+        - configMapRef:
+            name: rotations-config
+        ports:
+        - containerPort: 8080
+        resources: 
+          requests: 
+            cpu: 500m
+            memory: 512Mi
+          limits: 
+            cpu: 1000m
+            memory: 1Gi

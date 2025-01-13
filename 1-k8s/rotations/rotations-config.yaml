@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  AWS_REGION: us-west-2
+  QUEUES_TABLE_NAME: karaoke-app-local-dev-queues
+  SINGERS_TABLE_NAME: karaoke-app-local-dev-enqueued-singers
+kind: ConfigMap
+metadata:
+  name: rotations-config
+  namespace: test

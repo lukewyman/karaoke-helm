@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: song-library
+  name: song-library
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: song-library
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: song-library
+    spec:
+      containers:
+      - image: lukewyman/song-library:v1.0.0
+        name: song-library
+        command: 
+        - /bin/sh
+        - -c
+        - 'uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8080'
+        envFrom:
+        - configMapRef:
+            name: song-library-config  
+        ports:
+        - containerPort: 8080
+        resources: 
+          requests: 
+            cpu: 500m
+            memory: 512Mi
+          limits: 
+            cpu: 1000m
+            memory: 1Gi

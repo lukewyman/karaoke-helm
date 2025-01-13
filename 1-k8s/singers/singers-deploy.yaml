@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: singers
+  name: singers
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: singers
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: singers
+    spec:
+      containers:
+      - image: lukewyman/singers:v1.0.0
+        name: singers
+        command: 
+        - /bin/sh
+        - -c
+        - 'uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8080'
+        envFrom:
+        - configMapRef:
+            name: singers-config  
+        ports:
+        - containerPort: 8080
+        resources: 
+          requests: 
+            cpu: 500m
+            memory: 512Mi
+          limits: 
+            cpu: 1000m
+            memory: 1Gi

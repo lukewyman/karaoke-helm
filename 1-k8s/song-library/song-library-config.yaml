@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  MONGO_HOSTNAME: mongo-mongodb
+  MONGO_PASSWORD: p@ssw0RD123
+  MONGO_PORT: "27017"
+  MONGO_USERNAME: admin
+kind: ConfigMap
+metadata:
+  name: song-library-config
+  namespace: test
