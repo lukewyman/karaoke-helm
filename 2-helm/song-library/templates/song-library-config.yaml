@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  MONGO_HOSTNAME: {{ .Values.configmap.data.MONGO_HOSTNAME }}
+  MONGO_PASSWORD: {{ .Values.configmap.data.MONGO_PASSWORD }}
+  MONGO_PORT: "{{ .Values.configmap.data.MONGO_PORT }}"
+  MONGO_USERNAME: {{ .Values.configmap.data.MONGO_USERNAME }}
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configmap.name }}
+  namespace: test

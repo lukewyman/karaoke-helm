@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  AWS_REGION: {{ .Values.configmap.data.AWS_REGION }}
+  SONG_CHOICES_TABLE_NAME: {{ .Values.configmap.data.SONG_CHOICES_TABLE_NAME }}
+  SONG_LIBRARY_SERVICE: {{ .Values.configmap.data.SONG_LIBRARY_SERVICE }}
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configmap.name }}
+  namespace: {{ .Values.namespace }}
