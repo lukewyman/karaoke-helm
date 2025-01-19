@@ -1,7 +1,5 @@
 appName: song-library
 
-namespace: test 
-
 configmap: 
   name: song-library-config
   data: 
