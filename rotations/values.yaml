@@ -1,7 +1,5 @@
 appName: rotations
 
-namespace: test 
-
 configmap: 
   name: rotations-config
   data: 

@@ -1,7 +1,5 @@
 appName: singers
 
-namespace: test 
-
 configmap: 
   name: singers-config
   data: 

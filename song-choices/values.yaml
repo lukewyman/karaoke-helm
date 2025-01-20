@@ -1,7 +1,5 @@
 appName: song-choices
 
-namespace: test 
-
 configmap: 
   name: song-choices-config
   data: 

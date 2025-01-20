@@ -4,7 +4,6 @@ metadata:
   labels:
     app: song-choices
   name: song-choices
-  namespace: test
 spec:
   ports:
   - port: 80

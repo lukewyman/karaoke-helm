@@ -6,4 +6,3 @@ data:
 kind: ConfigMap
 metadata:
   name: {{ .Values.configmap.name }}
-  namespace: {{ .Values.namespace }}
